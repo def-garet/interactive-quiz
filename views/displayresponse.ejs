@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Saved AI Responses</title>
+</head>
+<body>
+    <h1>Saved AI Responses</h1>
+    <% if (responses.length === 0) { %>
+        <p>No saved AI responses found.</p>
+    <% } else { %>
+        <table border="1">
+            <thead>
+                <tr>
+                    <th>Quiz ID</th>
+                    <th>Document Type</th>
+                    <th>AI Response File Path</th>
+                    <th>Upload Quiz Path</th>
+                </tr>
+            </thead>
+            <tbody>
+                <% responses.forEach(response => { %>
+                    <tr>
+                        <td><%= response.quiz_id %></td>
+                        <td><%= response.doctype %></td>
+                        <td>
+                            <a href="<%= response.upload_response %>" target="_blank">
+                                View Response
+                            </a>
+                        </td>
+                        <td><%= response.upload_quiz %></td>
+                    </tr>
+                <% }) %>
+            </tbody>
+        </table>
+    <% } %>
+</body>
+</html>

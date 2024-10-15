@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Quiz</title>
+    <style>
+        .question { margin-bottom: 20px; }
+        .result { margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <div id="quiz-container"></div>
+    <button id="submit">Submit</button>
+    <div class="result" id="result"></div>
+
+    <script>
+        const renderQuiz = (questions) => {
+            let quizHtml = '<h1>Quiz</h1>';
+            questions.forEach((q, index) => {
+                quizHtml += `<div class="question">
+                                <p>${index + 1}. ${q.question}</p>`;
+                q.options.forEach(option => {
+                    quizHtml += `<div>
+                                    <input type="radio" name="question${index}" value="${option}" id="q${index}o${option}">
+                                    <label for="q${index}o${option}">${option}</label>
+                                 </div>`;
+                });
+                quizHtml += `</div>`;
+            });
+            return quizHtml;
+        };
+
+        fetch('/uploads/test.json')
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(questions => {
+                const quizContainer = document.getElementById('quiz-container');
+                quizContainer.innerHTML = renderQuiz(questions);
+
+                document.getElementById('submit').addEventListener('click', () => {
+                    checkAnswers(questions);
+                });
+            })
+            .catch(error => {
+                console.error('Error fetching quiz data:', error);
+                document.getElementById('quiz-container').innerHTML = `<p>Error fetching quiz data: ${error.message}</p>`;
+            });
+
+        const checkAnswers = (questions) => {
+            let score = 0;
+
+            questions.forEach((q, index) => {
+                const selectedOption = document.querySelector(`input[name="question${index}"]:checked`);
+                if (selectedOption) {
+                    const answer = selectedOption.value;
+                    if (answer === q.answer) score++;
+                }
+            });
+
+            const totalQuestions = questions.length;
+            const resultDiv = document.getElementById('result');
+            resultDiv.innerHTML = `You scored ${score} out of ${totalQuestions}.`;
+            
+            //declared value lang ang id from database (goal: maging automatic siya)
+            const quiz_id = 30; 
+            fetch('/submit_score', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({ quiz_id, user_score: score }),
+            })
+            .then(response => {
+                if (!response.ok) throw new Error('Network response was not ok');
+                return response.json();
+            })
+            .then(data => {
+                console.log('Score submitted successfully:', data);
+            })
+            .catch(error => {
+                console.error('Error submitting score:', error);
+            });
+        };
+    </script>
+</body>
+</html>
