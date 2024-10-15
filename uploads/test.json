@@ -1,0 +1,66 @@
+[
+  {
+    "question": "Why are plants considered as autotrophs?",
+    "options": [
+      "They require other organisms to make their food",
+      "They can produce their own food"
+    ],
+    "answer": "They can produce their own food"
+  },
+  {
+    "question": "How do human beings prepare their food?",
+    "options": [
+      "By cooking ingredients in the presence of heat",
+      "By photosynthesis"
+    ],
+    "answer": "By cooking ingredients in the presence of heat"
+  },
+  {
+    "question": "In what way do plants produce their food?",
+    "options": [
+      "Through combustion",
+      "Through photosynthesis"
+    ],
+    "answer": "Through photosynthesis"
+  },
+  {
+    "question": "What are the primary components involved in photosynthesis?",
+    "options": [
+      "Chlorophyll, carbon dioxide, and water",
+      "Light, fire, and wood"
+    ],
+    "answer": "Chlorophyll, carbon dioxide, and water"
+  },
+  {
+    "question": "Which part of a plant's leaf is most important for photosynthesis?",
+    "options": [
+      "The upper epidermis",
+      "The mesophyll spongy layer"
+    ],
+    "answer": "The mesophyll spongy layer"
+  },
+  {
+    "question": "What are the two separate but interdependent reactions involved in photosynthesis?",
+    "options": [
+      "Light and dark reactions",
+      "Night and day reactions"
+    ],
+    "answer": "Light and dark reactions"
+  },
+  {
+    "question": "What is formed during the light reaction of photosynthesis?",
+    "options": [
+      "Adenosine triphosphate (ATP) and oxygen",
+      "Water and carbon dioxide"
+    ],
+    "answer": "Adenosine triphosphate (ATP) and oxygen"
+  },
+  {
+    "question": "What happens in the dark reaction of photosynthesis?",
+    "options": [
+      "The formation of a five-carbon sugar molecule",
+      "The release of energy from electrons"
+    ],
+    "answer": "The formation of a five-carbon sugar molecule"
+  }
+]

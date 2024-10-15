@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Answer Key</title>
+</head>
+<body>
+    <h1>Answer Key</h1>
+    <p>Your score: <strong><%= score %></strong></p> <!-- Display the score -->
+    <ul>
+        <% answerkey.forEach(item => { %>
+            <li><strong><%= item.question %></strong>: <%= item.answer %></li>
+        <% }) %>
+    </ul>
+    <a href="/quiz">Back to Quiz</a>
+</body>
+</html>
