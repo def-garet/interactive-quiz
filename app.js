@@ -321,6 +321,64 @@ app.post('/send_message', async (req, res) => {
 });
 
 
+
+app.get('/account/:user_id', (req, res) => {
+    const user_id = req.params.user_id;
+    
+    const account = `SELECT user_name, user_email,user_password  FROM users WHERE user_id=?`;
+
+    conn.query(account, [user_id], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('Error');
+        }
+
+        if (results.length > 0) {
+            const username = results[0].user_name;
+            const user_email = results[0].user_email;
+            const user_password =  results[0].user_password;
+            res.render('account', {
+                user_name: username,
+                user_email: user_email,
+                user_password: user_password,
+                user_id: user_id 
+            });
+        } else {
+            res.status(404).send('User not found');
+        }
+    });
+});
+
+app.post('/account/:user_id/change-name', (req, res) => {
+    const user_id = req.params.user_id;
+    const new_name = req.body.new_name;
+    
+    const updateQuery = `UPDATE users SET user_name = ? WHERE user_id = ?`;
+
+    conn.query(updateQuery, [new_name, user_id], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('cannot update name');
+        }
+        res.redirect(`/account/${user_id}`);
+    });
+});
+
+app.post('/account/:user_id/change-email', (req, res) => {
+    const user_id = req.params.user_id;
+    const new_email = req.body.new_email;
+
+    const updateEmailQuery = `UPDATE users SET user_email = ? WHERE user_id = ?`;
+    conn.query(updateEmailQuery, [new_email, user_id], (err, results) => {
+        if (err) {
+            console.error(err);
+            return res.status(500).send('cannot update email');
+        }
+
+        res.redirect(`/account/${user_id}`); 
+    });
+});
+
 app.listen(3000,()=>{
     console.log("Listening...");
 });

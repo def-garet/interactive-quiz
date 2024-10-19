@@ -1,44 +1,52 @@
 [
   {
-    "question": "What does Johnson view as a person's primary focus in nursing?",
+    "question": "Who challenged Wenceslao Retana to a fist fight?",
     "options": [
-      "Biological system",
-      "Behavioral system"
+      "Jose Rizal",
+      "Manuel Quezon",
+      "Rafael Palma",
+      "Austin Coates"
     ],
-    "answer": "Behavioral system"
+    "answer": "Jose Rizal"
   },
   {
-    "question": "According to Johnson, what factors affect an individual's health?",
+    "question": "What event led to the 1896 Philippine revolution, according to Retana's account?",
     "options": [
-      "Social",
-      "Psychological",
-      "Biological",
-      "Physiological"
+      "The execution of Jose Rizal",
+      "The birth of Philippine independence",
+      "The Spanish colonization of the Philippines",
+      "The signing of the Treaty of Paris"
     ],
-    "answer": "Social, psychological, biological, and physiological factors"
+    "answer": "The execution of Jose Rizal"
   },
   {
-    "question": "What does Johnson believe influences an individual's behavior in the environment?",
+    "question": "Which biography of Rizal won the 3rd prize in a writing contest?",
     "options": [
-      "Cultural influences",
-      "Biological factors"
+      "Carlos Quirino's 'The Great Malayan'",
+      "Rafael Palma's 'Biografia de Rizal'",
+      "Austin Coates' 'Rizal, Philippine Nationalist and Martyr'",
+      "Medina's 'Retana: A Witness to History'"
     ],
-    "answer": "Cultural influences"
+    "answer": "Carlos Quirino's 'The Great Malayan'"
   },
   {
-    "question": "What is the primary goal of nursing according to Johnson?",
+    "question": "Which biographer described Rizal as an 'ordinary person' with a great love for his country?",
     "options": [
-      "Maintaining balance within the individual",
-      "Correcting impaired behaviors"
+      "Wenceslao Retana",
+      "Rafael Palma",
+      "Carlos Quirino",
+      "Austin Coates"
     ],
-    "answer": "Maintaining balance within the individual"
+    "answer": "Carlos Quirino"
   },
   {
-    "question": "How does Johnson define an individual's behavioral system?",
+    "question": "What is the title of Austin Coates' detailed work on Rizal's biography?",
     "options": [
-      "A collection of fixed and predictable actions",
-      "A set of socially acceptable behaviors"
+      "Rizal, Philippine Nationalist and Martyr",
+      "The Life of Jose Rizal",
+      "Rizal: A Man Ahead of His Time",
+      "Philippine Patriotism: The Legacy of Jose Rizal"
     ],
-    "answer": "A collection of fixed and predictable actions"
+    "answer": "Rizal, Philippine Nationalist and Martyr"
   }
 ]
