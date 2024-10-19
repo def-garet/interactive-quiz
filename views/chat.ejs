@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>Chat Interface</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/material-design-iconic-font/2.2.0/css/material-design-iconic-font.min.css">
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.0.0-alpha2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="/css/chat.css">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body class="bg-light">
+
+<div class="container-fluid" style="height:100vh;">
+  <div class="row h-100">
+    <div class="col-4 border-end" id="sidebar" style="background: #f8f9fa;">
+      <h3 class="p-3 text-center">Chat with ThinkTank</h3>
+    </div>
+
+    <div class="col-8 d-flex flex-column">
+      <div class="flex-grow-1 overflow-auto p-3" id="chatHistory">
+        
+        <% messages.forEach(msg => { %>
+          <% if (msg.username !== "ThinkTank") { %>
+            <div class="message my-2">
+              <div class="bg-primary text-white p-2 rounded" style="display:inline-block;">
+                <strong><%= msg.username %>:</strong> <%= msg.message_one %>
+              </div>
+            </div>
+          <% } else { %>
+            <div class="message my-2">
+              <div class="bg-secondary text-white p-2 rounded" style="display:inline-block;">
+                <strong><%= msg.bot_name %>:</strong> <%= msg.botmessage %>
+              </div>
+            </div>
+          <% } %>
+        <% }); %>
+      </div>
+
+      <!-- Message input and send button -->
+      <div class="d-flex align-items-center p-3 border-top">
+        <input id="userMessage" type="text" class="form-control me-2" placeholder="Type a message...">
+        <button onclick="sendMessage()" class="btn btn-primary">
+          <i class="zmdi zmdi-mail-send"></i>
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+  async function sendMessage() {
+    const userMessage = document.getElementById('userMessage').value;
+    document.getElementById('userMessage').value = '';
+
+    // Display user's message
+    const userHtml = `<div class="message my-2">
+                        <div class="bg-primary text-white p-2 rounded" style="display:inline-block;">
+                          <strong>You:</strong> ${userMessage}
+                        </div>
+                      </div>`;
+    document.getElementById('chatHistory').insertAdjacentHTML('beforeend', userHtml);
+
+    // Send user's message to the server
+    const response = await fetch('/send_message', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ username: 'User', message_one: userMessage })
+    });
+
+    const data = await response.json();
+    const botReply = data.reply;
+
+    const botHtml = `<div class="message my-2">
+                       <div class="bg-secondary text-white p-2 rounded" style="display:inline-block;">
+                         <strong>Think Tank:</strong> ${botReply}
+                       </div>
+                     </div>`;
+    document.getElementById('chatHistory').insertAdjacentHTML('beforeend', botHtml);
+  }
+
+  document.getElementById('sendMessageButton').addEventListener('click', function() {
+    const username = document.getElementById('username').value;
+    const message_one = document.getElementById('userMessage').value;
+
+    fetch('/send_message', {
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ username, message_one }),
+    })
+    .then(response => response.json())
+    .then(data => {
+        const chatBox = document.getElementById('chatBox');
+        chatBox.innerHTML += `<div><strong>${username}:</strong> ${message_one}</div>`;
+        chatBox.innerHTML += `<div><strong>Think Tank:</strong> ${data.reply}</div>`;
+        document.getElementById('userMessage').value = ''; 
+    })
+    .catch(error => console.error('Error:', error));
+});
+
+</script>
+</body>
+</html>

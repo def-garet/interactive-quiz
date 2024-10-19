@@ -1,66 +1,44 @@
 [
   {
-    "question": "Why are plants considered as autotrophs?",
+    "question": "What does Johnson view as a person's primary focus in nursing?",
     "options": [
-      "They require other organisms to make their food",
-      "They can produce their own food"
+      "Biological system",
+      "Behavioral system"
     ],
-    "answer": "They can produce their own food"
+    "answer": "Behavioral system"
   },
   {
-    "question": "How do human beings prepare their food?",
+    "question": "According to Johnson, what factors affect an individual's health?",
     "options": [
-      "By cooking ingredients in the presence of heat",
-      "By photosynthesis"
+      "Social",
+      "Psychological",
+      "Biological",
+      "Physiological"
     ],
-    "answer": "By cooking ingredients in the presence of heat"
+    "answer": "Social, psychological, biological, and physiological factors"
   },
   {
-    "question": "In what way do plants produce their food?",
+    "question": "What does Johnson believe influences an individual's behavior in the environment?",
     "options": [
-      "Through combustion",
-      "Through photosynthesis"
+      "Cultural influences",
+      "Biological factors"
     ],
-    "answer": "Through photosynthesis"
+    "answer": "Cultural influences"
   },
   {
-    "question": "What are the primary components involved in photosynthesis?",
+    "question": "What is the primary goal of nursing according to Johnson?",
     "options": [
-      "Chlorophyll, carbon dioxide, and water",
-      "Light, fire, and wood"
+      "Maintaining balance within the individual",
+      "Correcting impaired behaviors"
     ],
-    "answer": "Chlorophyll, carbon dioxide, and water"
+    "answer": "Maintaining balance within the individual"
   },
   {
-    "question": "Which part of a plant's leaf is most important for photosynthesis?",
+    "question": "How does Johnson define an individual's behavioral system?",
     "options": [
-      "The upper epidermis",
-      "The mesophyll spongy layer"
+      "A collection of fixed and predictable actions",
+      "A set of socially acceptable behaviors"
     ],
-    "answer": "The mesophyll spongy layer"
-  },
-  {
-    "question": "What are the two separate but interdependent reactions involved in photosynthesis?",
-    "options": [
-      "Light and dark reactions",
-      "Night and day reactions"
-    ],
-    "answer": "Light and dark reactions"
-  },
-  {
-    "question": "What is formed during the light reaction of photosynthesis?",
-    "options": [
-      "Adenosine triphosphate (ATP) and oxygen",
-      "Water and carbon dioxide"
-    ],
-    "answer": "Adenosine triphosphate (ATP) and oxygen"
-  },
-  {
-    "question": "What happens in the dark reaction of photosynthesis?",
-    "options": [
-      "The formation of a five-carbon sugar molecule",
-      "The release of energy from electrons"
-    ],
-    "answer": "The formation of a five-carbon sugar molecule"
+    "answer": "A collection of fixed and predictable actions"
   }
 ]

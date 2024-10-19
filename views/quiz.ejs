@@ -10,7 +10,7 @@
     </style>
 </head>
 <body>
-    <div id="quiz-container"></div>
+    <div id="quiz-container" data-quiz-id="<%= quiz_id %>"></div>
     <button id="submit">Submit</button>
     <div class="result" id="result"></div>
 
@@ -63,27 +63,31 @@
             const totalQuestions = questions.length;
             const resultDiv = document.getElementById('result');
             resultDiv.innerHTML = `You scored ${score} out of ${totalQuestions}.`;
-            
-            //declared value lang ang id from database (goal: maging automatic siya)
-            const quiz_id = 30; 
-            fetch('/submit_score', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify({ quiz_id, user_score: score }),
-            })
-            .then(response => {
-                if (!response.ok) throw new Error('Network response was not ok');
-                return response.json();
-            })
-            .then(data => {
-                console.log('Score submitted successfully:', data);
-            })
-            .catch(error => {
-                console.error('Error submitting score:', error);
-            });
-        };
+
+            const quizid = document.getElementById('quiz-container').getAttribute('data-quiz-id');
+
+            const submitScore = (score) => {
+                fetch('/submit_score', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify({ quiz_id: quizid, user_score: score }),
+                })
+                .then(response => {
+                    if (!response.ok) throw new Error('Network response was not ok');
+                    return response.json();
+                })
+                .then(data => {
+                    console.log('Score submitted successfully:', data);
+                })
+                .catch(error => {
+                    console.error('Error submitting score:', error);
+                });
+            };
+
+            submitScore(score);
+        }; 
     </script>
 </body>
 </html>
